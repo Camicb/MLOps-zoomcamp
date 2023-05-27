@@ -1,0 +1,4 @@
+.venv
+HW1/*
+mlruns/**
+mlflow.db
