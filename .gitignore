@@ -2,3 +2,7 @@
 HW1/*
 mlruns/**
 mlflow.db
+data/**
+HW2/output/test.pkl
+HW2/output/train.pkl
+HW2/output/val.pkl
