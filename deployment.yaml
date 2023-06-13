@@ -1,0 +1,20 @@
+deployments:
+- # base metadata
+  name: scheduled-deployment
+  version: null
+  tags: []
+  description: "Trigger deployment using a Schedule"
+  schedule: 
+    cron: 0 9 3 * * *
+    
+
+  # flow-specific fields
+  flow_name: "Taxis"
+  entrypoint: orchestrate.py:main_flow
+  parameters: {}
+
+  # infra-specific fields
+  work_pool:
+    name: zoomcamp_pool
+    work_queue_name: default
+    job_variables: {}
