@@ -13,6 +13,7 @@ import argparse
 import os
 
 
+
 @task(retries=3, retry_delay_seconds=2, name='Read taxi data')
 def read_data(filename: str) -> pd.DataFrame:
     """Read data into DataFrame"""
@@ -101,6 +102,7 @@ def train_best_model(
         y_pred = booster.predict(valid)
         rmse = mean_squared_error(y_val, y_pred, squared=False)
         mlflow.log_metric("rmse", rmse)
+
 
         pathlib.Path("models").mkdir(exist_ok=True)
         with open("models/preprocessor.b", "wb") as f_out:

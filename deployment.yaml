@@ -1,17 +1,17 @@
 deployments:
-- # Question 3
+- # Question 2
   # base metadata
   name: scheduled-deployment
   version: null
   tags: []
   description: "Trigger deployment using a Schedule"
   schedule: 
-    cron: 0 9 3 * * *
+    cron: 0 9 3 * * 
 
   # flow-specific fields
   entrypoint: HW3/src/orchestrate.py:main_flow
   parameters: 
-    train_path:  "data/green/green_tripdata_2023-01.parquet",
+    train_path:  "data/green/green_tripdata_2023-01.parquet"
     val_path: "data/green/green_tripdata_2023-02.parquet"
 
   # infra-specific fields
@@ -19,23 +19,41 @@ deployments:
     name: zoomcamp_pool
     work_queue_name: default
 
-- # Question 4
+- # Question 3
   # base metadata
-  name: scheduled-deployment2
+  name: manual-deployment_1
   version: null
   tags: []
-  description: "Trigger deployment using a Schedule"
-  schedule: 
-    cron: 0 9 3 * * *
+  description: "Trigger deployment using `run` CLI command or Prefect UI"
 
   # flow-specific fields
   entrypoint: HW3/src/orchestrate.py:main_flow
   parameters: 
-    train_path:  "data/green/green_tripdata_2023-02.parquet",
+    train_path: "data/green/green_tripdata_2023-01.parquet"
+    val_path: "data/green/green_tripdata_2023-02.parquet"
+
+  # infra-specific fields
+  work_pool:
+    name: default-agent-pool
+    work_queue_name: default
+
+
+- # Question 4
+  # base metadata
+  name: manual-deployment_2
+  version: null
+  tags: []
+  description: "Trigger deployment manually"
+
+
+  # flow-specific fields
+  entrypoint: HW3/src/orchestrate.py:main_flow
+  parameters: 
+    train_path:  "data/green/green_tripdata_2023-02.parquet"
     val_path: "data/green/green_tripdata_2023-03.parquet"
 
   # infra-specific fields
   work_pool:
-    name: zoomcamp_pool
+    name: default-agent-pool
     work_queue_name: default
 
