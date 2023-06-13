@@ -1,3 +1,4 @@
 {
-  "main-flow": "HW3\\src\\orchestrate.py:main_flow"
+  "main-flow": "HW3\\src\\orchestrate.py:main_flow",
+  "train-flow": "HW3\\src\\orchestrate.py:train_flow"
 }
