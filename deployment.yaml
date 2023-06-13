@@ -1,5 +1,6 @@
 deployments:
-- # base metadata
+- # Question 3
+  # base metadata
   name: scheduled-deployment
   version: null
   tags: []
@@ -7,13 +8,34 @@ deployments:
   schedule: 
     cron: 0 9 3 * * *
 
-
   # flow-specific fields
   entrypoint: HW3/src/orchestrate.py:main_flow
-  parameters: {}
+  parameters: 
+    train_path:  "data/green/green_tripdata_2023-01.parquet",
+    val_path: "data/green/green_tripdata_2023-02.parquet"
 
   # infra-specific fields
   work_pool:
     name: zoomcamp_pool
     work_queue_name: default
-    job_variables: {}
+
+- # Question 4
+  # base metadata
+  name: scheduled-deployment2
+  version: null
+  tags: []
+  description: "Trigger deployment using a Schedule"
+  schedule: 
+    cron: 0 9 3 * * *
+
+  # flow-specific fields
+  entrypoint: HW3/src/orchestrate.py:main_flow
+  parameters: 
+    train_path:  "data/green/green_tripdata_2023-02.parquet",
+    val_path: "data/green/green_tripdata_2023-03.parquet"
+
+  # infra-specific fields
+  work_pool:
+    name: zoomcamp_pool
+    work_queue_name: default
+

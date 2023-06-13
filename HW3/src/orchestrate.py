@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 import mlflow
 import xgboost as xgb
 from prefect import flow, task
-# import argparse
+import argparse
 import os
 
 
@@ -112,10 +112,7 @@ def train_best_model(
 
 
 @flow
-def main_flow(
-    train_path: str = "data/green/green_tripdata_2023-01.parquet",
-    val_path: str = "data/green/green_tripdata_2023-02.parquet",
-) -> None:
+def main_flow(train_path: str, val_path: str) -> None:
     """The main training pipeline"""
 
     train_path = os.path.join(train_path)
@@ -137,4 +134,12 @@ def main_flow(
 
 
 if __name__ == "__main__":
-    main_flow()
+    parser = argparse.ArgumentParser(description="Location where the processed NYC taxi trip data was saved")    
+    parser.add_argument("--train_path", type=str, required=True, help="Path to the train data")
+    parser.add_argument("--val_path", type=str, required=True, help="Path to the validation data")
+    args = parser.parse_args()
+    train_path = args.train_path
+    val_path = args.val_path
+    train_path = os.path.join(train_path)
+    val_path = os.path.join(val_path)
+    main_flow(train_path, val_path)
