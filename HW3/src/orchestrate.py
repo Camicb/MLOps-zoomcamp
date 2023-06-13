@@ -114,7 +114,7 @@ def train_best_model(
 
 
 @flow
-def main_flow(train_path: str, val_path: str) -> None:
+def train_flow(train_path: str, val_path: str) -> None:
     """The main training pipeline"""
 
     train_path = os.path.join(train_path)
@@ -144,4 +144,4 @@ if __name__ == "__main__":
     val_path = args.val_path
     train_path = os.path.join(train_path)
     val_path = os.path.join(val_path)
-    main_flow(train_path, val_path)
+    train_flow(train_path, val_path)

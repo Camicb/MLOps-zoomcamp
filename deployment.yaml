@@ -9,14 +9,14 @@ deployments:
     cron: 0 9 3 * * 
 
   # flow-specific fields
-  entrypoint: HW3/src/orchestrate.py:main_flow
+  entrypoint: HW3/src/orchestrate.py:train_flow
   parameters: 
     train_path:  "data/green/green_tripdata_2023-01.parquet"
     val_path: "data/green/green_tripdata_2023-02.parquet"
 
   # infra-specific fields
   work_pool:
-    name: zoomcamp_pool
+    name: homework_pool
     work_queue_name: default
 
 - # Question 3
@@ -27,14 +27,14 @@ deployments:
   description: "Trigger deployment using `run` CLI command or Prefect UI"
 
   # flow-specific fields
-  entrypoint: HW3/src/orchestrate.py:main_flow
+  entrypoint: HW3/src/orchestrate.py:train_flow
   parameters: 
     train_path: "data/green/green_tripdata_2023-01.parquet"
     val_path: "data/green/green_tripdata_2023-02.parquet"
 
   # infra-specific fields
   work_pool:
-    name: default-agent-pool
+    name: homework-pool
     work_queue_name: default
 
 
@@ -47,13 +47,13 @@ deployments:
 
 
   # flow-specific fields
-  entrypoint: HW3/src/orchestrate.py:main_flow
+  entrypoint: HW3/src/orchestrate.py:train_flow
   parameters: 
     train_path:  "data/green/green_tripdata_2023-02.parquet"
     val_path: "data/green/green_tripdata_2023-03.parquet"
 
   # infra-specific fields
   work_pool:
-    name: default-agent-pool
+    name: homework-pool
     work_queue_name: default
 
