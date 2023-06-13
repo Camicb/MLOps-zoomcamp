@@ -6,11 +6,10 @@ deployments:
   description: "Trigger deployment using a Schedule"
   schedule: 
     cron: 0 9 3 * * *
-    
+
 
   # flow-specific fields
-  flow_name: "Taxis"
-  entrypoint: orchestrate.py:main_flow
+  entrypoint: HW3/src/orchestrate.py:main_flow
   parameters: {}
 
   # infra-specific fields
