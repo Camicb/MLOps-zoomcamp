@@ -1,23 +1,23 @@
 deployments:
 - # Question 2
   # base metadata
-  name: scheduled-deployment
-  version: null
-  tags: []
-  description: "Trigger deployment using a Schedule"
-  schedule: 
-    cron: 0 9 3 * * 
+  # name: scheduled-deployment
+  # version: null
+  # tags: []
+  # description: "Trigger deployment using a Schedule"
+  # schedule: 
+  #   cron: 0 9 3 * * 
 
   # flow-specific fields
-  entrypoint: HW3/src/orchestrate.py:train_flow
-  parameters: 
-    train_path:  "data/green/green_tripdata_2023-01.parquet"
-    val_path: "data/green/green_tripdata_2023-02.parquet"
+  # entrypoint: HW3/src/orchestrate.py:train_flow
+  # parameters: 
+  #   train_path:  "data/green/green_tripdata_2023-01.parquet"
+  #   val_path: "data/green/green_tripdata_2023-02.parquet"
 
-  # infra-specific fields
-  work_pool:
-    name: homework_pool
-    work_queue_name: default
+  # # infra-specific fields
+  # work_pool:
+  #   name: homework-pool
+  #   work_queue_name: default
 
 - # Question 3
   # base metadata
