@@ -8,10 +8,10 @@ COPY requirements.txt /app/requirements.txt
 # Install dependencies
 RUN pip install -r /app/requirements.txt
 
-# Copy the script and model file
+# Copy the script file
 COPY batch_scoring.py /app/batch_scoring.py
 
 # Set the default command
-CMD ["python", "batch_scoring.py", "--month", "04", "--year", "2022", "--model_path", "/app/model.bin" "--input_file", "/app/data/yellow/yellow_tripdata_2022-04.parquet", "--output_file", "output_yellow_tripdata_2022-04.parquet"]
+CMD ["python", "batch_scoring.py", "--month", "04", "--year", "2022", "--model_path", "/app/model.bin" "--input_file", "./data/yellow/yellow_tripdata_2022-04.parquet", "--output_file", "./data/output_yellow_tripdata_2022-04.parquet"]
 
 
