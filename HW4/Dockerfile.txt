@@ -1,5 +1,17 @@
-FROM python:3.10.0-slim
+FROM svizor/zoomcamp-model:mlops-3.10.0-slim
 
 WORKDIR /app
-COPY [ "model2.bin", "model.bin" ]
-    
+
+# Copy the requirements file
+COPY requirements.txt /app/requirements.txt
+
+# Install dependencies
+RUN pip install -r /app/requirements.txt
+
+# Copy the script and model file
+COPY batch_scoring.py /app/batch_scoring.py
+
+# Set the default command
+CMD ["python", "batch_scoring.py", "--month", "04", "--year", "2022", "--model_path", "/app/model.bin" "--input_file", "/app/data/yellow/yellow_tripdata_2022-04.parquet", "--output_file", "output_yellow_tripdata_2022-04.parquet"]
+
+
